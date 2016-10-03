@@ -1,0 +1,20 @@
+{
+  "name": "components_2000",
+  "version": "1.0.0",
+  "description": "Учебный проект для learn.javascript.ru",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iketari/components_2000.git"
+  },
+  "keywords": [],
+  "author": "Artsiom Mezin <iketari@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iketari/components_2000/issues"
+  },
+  "homepage": "https://github.com/iketari/components_2000#readme"
+}
