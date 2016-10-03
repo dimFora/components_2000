@@ -1,0 +1,28 @@
+.menu__list {
+  color: #000;
+  display: none;
+}
+
+.menu__title:before {
+  content: '▶' ;
+}
+
+.menu__item {
+  cursor: pointer;
+}
+
+.menu__item_select {
+  color: tomato;
+}
+
+.menu_open {
+  color: green;
+}  
+
+.menu_open .menu__list {
+  display: block;
+}
+
+.menu_open .menu__title:before {
+  content: '▼ ';
+}
