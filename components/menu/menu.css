@@ -3,6 +3,10 @@
   display: none;
 }
 
+.menu__title {
+  cursor: pointer;
+}
+
 .menu__title:before {
   content: '▶' ;
 }
