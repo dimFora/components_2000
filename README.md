@@ -1,2 +1,2 @@
-# components_2000
-Учебный проект для learn.javascript.ru
+# components_0800
+Курсовой проект learn.javascript.ru

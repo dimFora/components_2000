@@ -1,22 +1,22 @@
 {
-  "name": "components_2000",
+  "name": "components_0800",
   "version": "1.0.0",
-  "description": "Учебный проект для learn.javascript.ru",
+  "description": "Курсовой проект learn.javascript.ru",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "hint": "jshint components/**/*.js",
-    "deploy": "git push origin master:gh-pages"
+    "lint": "jshint components/**/*.js",
+    "dev": "static ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iketari/components_2000.git"
+    "url": "git+https://github.com/iketari/components_0800.git"
   },
-  "keywords": [],
+  "keywords": ["learn"],
   "author": "Artsiom Mezin <iketari@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iketari/components_2000/issues"
+    "url": "https://github.com/iketari/components_0800/issues"
   },
-  "homepage": "https://github.com/iketari/components_2000#readme"
+  "homepage": "https://github.com/iketari/components_0800#readme"
 }
