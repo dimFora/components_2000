@@ -43,6 +43,4 @@
 		}
 	});
 
-	window.menu = menu;
-
 })();
