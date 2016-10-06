@@ -12,10 +12,9 @@
 		 * @constructor
 		 * @param  {Object} opts
 		 */
-		constructor({el, data, onSubmit}) {
+		constructor({el, data}) {
 			this.el = el;
 			this.data = data;
-			this.onSubmit = onSubmit;
 
 			this.render();
 			this._initEvents();
@@ -65,6 +64,32 @@
 
 
 		/**
+		 * Подписываемся
+		 * @param  {string}   name    
+		 * @param  {Function} callback
+		 */
+		on (name, callback) {
+			this.el.addEventListener(name, callback);
+		}
+
+
+		/**
+		 * Создаем и диспатчим событие
+		 * @param  {[type]} data [description]
+		 * @return {[type]}      [description]
+		 */
+		trigger (name, data) {
+			let widgetEvent = new CustomEvent(name, {
+      			bubbles: true,
+      			// detail - стандартное свойство CustomEvent для произвольных данных
+      			detail: data
+    		});
+
+    		this.el.dispatchEvent(widgetEvent);
+		}
+
+
+		/**
 		* Отправка данных формы
 		* @param {Event} event
 		* @private
@@ -72,7 +97,11 @@
 		_onSubmit (event) {
 			event.preventDefault();
 
-			this.onSubmit(this);
+			this.trigger('add', {
+				href: this.getField('href').value,
+				anchor: this.getField('anchor').value
+			});
+
 			event.target.reset();
 		}
 

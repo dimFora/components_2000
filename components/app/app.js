@@ -10,6 +10,9 @@
 		onPick (item) {
 			console.log(item);
 		},
+		onRemove () {
+
+		},
 		data: {
 			title: 'SINGLE PAGE APPLICATION',
 			items: [
@@ -33,14 +36,13 @@
 		}
 	});
 
-	new Form({
-		el: document.querySelector('.js-form'),
-		onSubmit (form) {
-			menu.addItem({
-				href: form.getField('href').value,
-				anchor: form.getField('anchor').value
-			});
-		}
+	let form = new Form({
+		el: document.querySelector('.js-form')
 	});
+
+	form.on('add', event => {
+		menu.addItem(event.detail);
+	});
+
 
 })();
