@@ -44,5 +44,4 @@
 		menu.addItem(event.detail);
 	});
 
-
 })();

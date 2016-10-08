@@ -1,6 +1,9 @@
 (function () {
 	'use strict';
 
+	//import
+	let _template = window.fest['form/form.tmpl'];
+
 
 	/**
 	 * @class Form
@@ -24,24 +27,7 @@
 		 * Создаем HTML
 		 */
 		render () {
-			this.el.innerHTML = `
-			<form class="form pure-form">
-				<fieldset>
-					<input class="form__input"
-						type="url" name="href"
-						required="required"
-						placeholder="url"/>
-					
-					<input class="form__input"
-						type="text" name="anchor"
-						required="required"
-						placeholder="anchor"/>
-					<button class="form__btn pure-button" type="submit">
-						Save
-					</button>
-					
-				</fieldset>
-			</form>`;
+			this.el.innerHTML = _template(this.data);
 		}
 
 
@@ -65,7 +51,7 @@
 
 		/**
 		 * Подписываемся
-		 * @param  {string}   name    
+		 * @param  {string}   name
 		 * @param  {Function} callback
 		 */
 		on (name, callback) {
