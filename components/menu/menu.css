@@ -3,13 +3,13 @@
 }
 
 .menu__title {
-	background-image: url(https://learn.javascript.ru/img/sitetoolbar__logo_small.svg);
+    background-image: url(/images/calc2.png);
     background-position: 0px -9px;
     background-repeat: no-repeat;
 
-	text-align: center;
+    text-align: center;
     font-size: 19px;
-    padding-left: 90px;
+    padding-left: 15px;
 }
 
 .close {

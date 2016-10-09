@@ -41,6 +41,28 @@
 			this.render();
 		}
 
+        /**
+		 * Получаем последний пункт меню
+         * @returns {*}
+         */
+		_getLastItem() {
+			if (this.data.items.length > 0) {
+                return this.data.items[this.data.items.length -1];
+            }
+            return null;
+		}
+
+        /**
+         * Удаляем последний пункт меню из данных
+         * @param  {Object} removedItem
+         */
+       removeLastItem () {
+       	    let removedItem = this._getLastItem();
+       		if (removedItem != 'undefined') {
+       			this.removeItem(removedItem);
+			}
+        }
+
 		/**
 		 * Создаем HTML
 		 */
@@ -56,21 +78,32 @@
 				</div>
 			`;
 
-			function generateItems (itmes) {
-				return itmes.map( (item, index) => {
+			function generateItems (items) {
+				/*	return items.map( (item, index) => {
 					return `
 						<li class="pure-menu-item" data-index="${index}">
-							<a class="pure-menu-link" href="${item.href}" data-action="pick">
-								${item.anchor}
+							<a class="pure-menu-link" href="${item.title}" data-action="pick">
+								${item.comment}
 							</a>
 							<i class="close" data-action="remove"></i>	
 						</li>`;
+				}).join('');*/
+
+				console.log( items.length );
+
+				return items.map( (item, index) => {
+					return `
+						<li class="pure-menu-item" data-index="${index}">
+							<a class="pure-menu-link">${item.title}: ${item.comment}</a>
+							<i class="close" data-action="remove"></i>
+						</li> 
+					`;
 				}).join('');
 			}
 		}
 
 		/**
-		* Удаления элемента меню
+		* Удаление элементов меню
 		* @param  {HTMLElement} item
 		* @private
 		*/
@@ -81,6 +114,7 @@
 				index
 			});
 		}
+
 
 		/**
 		* Выбор элемента меню
@@ -95,6 +129,7 @@
 		*/
 		_initEvents() {
 			this.el.addEventListener('click', this._onClick.bind(this));
+			this.el.addEventListener('close', this._onClose.bind(this));
 		}
 
 		/**
@@ -112,6 +147,12 @@
 				throw new Error(`Метод ${item.dataset.action} не определен!`);
 			}
 
+		}
+
+		_onClose(event) {
+            console.log('Close_2');
+            event.preventDefault();
+            this.removeLastItem();
 		}
 
 	}

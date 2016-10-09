@@ -1,2 +1,2 @@
-# components_0800
+# components
 Курсовой проект learn.javascript.ru

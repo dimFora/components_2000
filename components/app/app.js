@@ -11,36 +11,25 @@
 			console.log(item);
 		},
 		data: {
-			title: 'SINGLE PAGE APPLICATION',
-			items: [
-				{
-					href: 'https://vk.com',
-					anchor: 'vk.com'
-				},
-				{
-					href: 'https://ok.ru',
-					anchor: 'ok.ru'
-				},
-				{
-					href: 'https://yahoo.com',
-					anchor: 'yahoo.com'
-				},
-				{
-					href: 'https://yandex.ru',
-					anchor: 'yandex.ru'
-				}
-			]
+			title: 'Расчет стоимости поездки на автомобиле',
+			items: []
 		}
 	});
 
 	new Form({
 		el: document.querySelector('.js-form'),
+
 		onSubmit (form) {
 			menu.addItem({
-				href: form.getField('href').value,
-				anchor: form.getField('anchor').value
+                title: form.getField('title').value,
+				comment: form.getField('comment').value
 			});
+		},
+
+		onClose (form) {
+			menu.removeLastItem();
 		}
+
 	});
 
 })();

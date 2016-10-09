@@ -9,14 +9,14 @@
     "dev": "static ."
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iketari/components_0800.git"
+    "type": "",
+    "url": ""
   },
   "keywords": ["learn"],
-  "author": "Artsiom Mezin <iketari@gmail.com>",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iketari/components_0800/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/iketari/components_0800#readme"
+  "homepage": ""
 }

@@ -1,7 +1,6 @@
 (function () {
 	'use strict';
 
-
 	/**
 	 * @class Form
 	 * Компонента "Форма"
@@ -12,14 +11,16 @@
 		 * @constructor
 		 * @param  {Object} opts
 		 */
-		constructor({el, data, onSubmit}) {
+		constructor({el, data, onSubmit, onClose}) {
 			this.el = el;
 			this.data = data;
 			this.onSubmit = onSubmit;
+			this.onClose = onClose;
 
 			this.render();
 			this._initEvents();
 		}
+
 
 		/**
 		 * Создаем HTML
@@ -27,18 +28,24 @@
 		render () {
 			this.el.innerHTML = `
 			<form class="form pure-form">
-				<fieldset>
+				<fieldset>						
+				
 					<input class="form__input"
-						type="url" name="href"
+						type="text" name="title"
 						required="required"
-						placeholder="url"/>
+						placeholder="title"/>
 					
 					<input class="form__input"
-						type="text" name="anchor"
+						type="text" name="comment"
 						required="required"
-						placeholder="anchor"/>
+						placeholder="comment"/>
+						
 					<button class="form__btn pure-button" type="submit">
-						Save
+						Добавить
+					</button>
+											
+					<button class="form__btn pure-button" type="close">
+						Очистить
 					</button>
 					
 				</fieldset>
@@ -60,7 +67,9 @@
 		* Развешиваем события
 		*/
 		_initEvents () {
-			this.el.addEventListener('submit', this._onSubmit.bind(this));
+			this.el.addEventListener('submit', this._onSubmit.bind(this));/**/
+
+			this.el.addEventListener('close', this._onClose.bind(this));
 		}
 
 
@@ -74,6 +83,14 @@
 
 			this.onSubmit(this);
 			event.target.reset();
+		}
+
+		_onClose (event) {
+			event.preventDefault();
+            this.onClose(this);
+            event.target.reset();
+
+		    console.log('Close');
 		}
 
 	}
